@@ -1,0 +1,1994 @@
+@font-face {
+  font-family: 'aniron';
+  src: url('../fonts/aniron/anirm___.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'newbaskerville';
+  src: url('../fonts/newbaskerville/NewBaskerville.woff') format('woff');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+main {
+  background-color: #fdfbef;
+  background-image: url(../img/ficha_en-US_pdf.jpg);
+  background-repeat: no-repeat;
+  background-position: left top;
+
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  margin: 20px auto 100px auto;
+  padding: 0;
+  border: 0;
+
+  width: 1148px;
+  height: 889px;
+
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+}
+
+main input[type=text] {
+  font-family: 'newbaskerville', sans-serif;
+  background-color: rgba(241,244,244,0.9);
+}
+
+#character_name {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 386px;
+  top: 48px;
+  width: 373px;
+  font-size: 28px;
+}
+
+#character_heroic_culture {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 106px;
+  top: 94px;
+  width: 182px;
+  font-size: 18px;
+}
+
+#character_cultural_blessing {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 114px;
+  top: 120px;
+  width: 174px;
+  font-size: 12px;
+
+  height: 22px;
+}
+
+#character_calling {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 74px;
+  top: 146px;
+  width: 214px;
+  font-size: 18px;
+}
+
+#character_age {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 330px;
+  top: 94px;
+  width: 35px;
+  font-size: 18px;
+}
+
+#character_standard_of_living {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 462px;
+  top: 94px;
+  width: 50px;
+  font-size: 12px;
+
+  height: 22px;
+}
+
+#character_patron {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 338px;
+  top: 120px;
+  width: 174px;
+  font-size: 18px;
+}
+
+#character_shadow_path {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 366px;
+  top: 146px;
+  width: 196px;
+  font-size: 18px;
+}
+
+#character_treasure {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 529px;
+  top: 110px;
+  width: 31px;
+  font-size: 18px;
+
+  height: 32px;
+}
+
+#character_distinctive_features_1 {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 668px;
+  top: 94px;
+  width: 169px;
+  font-size: 18px;
+}
+
+#character_distinctive_features_2 {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 582px;
+  top: 120px;
+  width: 255px;
+  font-size: 15px;
+}
+
+#character_flaws {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 608px;
+  top: 146px;
+  width: 229px;
+  font-size: 18px;
+}
+
+#character_imagem_path {
+  position: absolute;
+  left: 866px;
+  top: 102px;
+  width: 240px;
+  height: 173px;
+}
+
+div.attributes {
+}
+
+div.attributes input {
+}
+
+/* Bloco de atributo */
+
+#character_div_strength {
+  position: absolute;
+  left: 104px;
+  top: 218px;
+  width: 120px;
+  height: 120px;
+}
+
+#character_attributes_strength {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 73px;
+  top: 6px;
+  width: 31px;
+  font-size: 26px;
+
+  height: 32px;
+}
+
+#character_attributes_TN_strength {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 5px;
+  top: 28px;
+  width: 60px;
+  font-size: 40px;
+}
+
+#character_attributes_endurance {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 73px;
+  top: 69px;
+  width: 31px;
+  font-size: 26px;
+
+  height: 32px;
+}
+
+/* Bloco de atributo */
+
+/* Bloco de atributo */
+
+#character_div_heart {
+  position: absolute;
+  left: 378px;
+  top: 218px;
+  width: 120px;
+  height: 120px;
+}
+
+#character_attributes_heart {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 73px;
+  top: 6px;
+  width: 31px;
+  font-size: 26px;
+
+  height: 32px;
+}
+
+#character_attributes_TN_heart {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 5px;
+  top: 28px;
+  width: 60px;
+  font-size: 40px;
+}
+
+#character_attributes_hope {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 73px;
+  top: 69px;
+  width: 31px;
+  font-size: 26px;
+
+  height: 32px;
+}
+
+/* Bloco de atributo */
+
+/* Bloco de atributo */
+
+#character_div_wits {
+  position: absolute;
+  left: 653px;
+  top: 218px;
+  width: 120px;
+  height: 120px;
+}
+
+#character_attributes_wits {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 73px;
+  top: 6px;
+  width: 31px;
+  font-size: 26px;
+
+  height: 32px;
+}
+
+#character_attributes_TN_wits {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 5px;
+  top: 28px;
+  width: 60px;
+  font-size: 40px;
+}
+
+#character_attributes_parry {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 73px;
+  top: 69px;
+  width: 31px;
+  font-size: 26px;
+
+  height: 32px;
+}
+
+/* Bloco de atributo */
+
+input.marcador {
+  margin: 0;
+  padding: 0;
+}
+
+div.skills {
+}
+
+/* Skill Block */
+
+#character_div_skill_1 {
+  position: absolute;
+  left: 44px;
+  top: 373px;
+  width: 244px;
+  height: 152px;
+}
+
+#character_favoured_skills_Awe {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#character_favoured_skills_Athletics {
+  position: absolute;
+  left: 0;
+  top: 26px;
+}
+
+#character_favoured_skills_Awareness {
+  position: absolute;
+  left: 0;
+  top: 52px;
+}
+
+#character_favoured_skills_Hunting {
+  position: absolute;
+  left: 0;
+  top: 79px;
+}
+
+#character_favoured_skills_Song {
+  position: absolute;
+  left: 0;
+  top: 105px;
+}
+
+#character_favoured_skills_Craft {
+  position: absolute;
+  left: 0;
+  top: 131px;
+}
+
+#character_skills_Awe_1 {
+  position: absolute;
+  left: 109px;
+  top: 0;
+}
+
+#character_skills_Awe_2 {
+  position: absolute;
+  left: 132px;
+  top: 0;
+}
+
+#character_skills_Awe_3 {
+  position: absolute;
+  left: 155px;
+  top: 0;
+}
+
+#character_skills_Awe_4 {
+  position: absolute;
+  left: 177px;
+  top: 0;
+}
+
+#character_skills_Awe_5 {
+  position: absolute;
+  left: 200px;
+  top: 0;
+}
+
+#character_skills_Awe_6 {
+  position: absolute;
+  left: 223px;
+  top: 0;
+}
+
+#character_skills_Athletics_1 {
+  position: absolute;
+  left: 109px;
+  top: 27px;
+}
+
+#character_skills_Athletics_2 {
+  position: absolute;
+  left: 132px;
+  top: 27px;
+}
+
+#character_skills_Athletics_3 {
+  position: absolute;
+  left: 155px;
+  top: 27px;
+}
+
+#character_skills_Athletics_4 {
+  position: absolute;
+  left: 177px;
+  top: 27px;
+}
+
+#character_skills_Athletics_5 {
+  position: absolute;
+  left: 200px;
+  top: 27px;
+}
+
+#character_skills_Athletics_6 {
+  position: absolute;
+  left: 223px;
+  top: 27px;
+}
+
+#character_skills_Awareness_1 {
+  position: absolute;
+  left: 109px;
+  top: 53px;
+}
+
+#character_skills_Awareness_2 {
+  position: absolute;
+  left: 132px;
+  top: 53px;
+}
+
+#character_skills_Awareness_3 {
+  position: absolute;
+  left: 155px;
+  top: 53px;
+}
+
+#character_skills_Awareness_4 {
+  position: absolute;
+  left: 177px;
+  top: 53px;
+}
+
+#character_skills_Awareness_5 {
+  position: absolute;
+  left: 200px;
+  top: 53px;
+}
+
+#character_skills_Awareness_6 {
+  position: absolute;
+  left: 223px;
+  top: 53px;
+}
+
+#character_skills_Hunting_1 {
+  position: absolute;
+  left: 109px;
+  top: 79px;
+}
+
+#character_skills_Hunting_2 {
+  position: absolute;
+  left: 132px;
+  top: 79px;
+}
+
+#character_skills_Hunting_3 {
+  position: absolute;
+  left: 155px;
+  top: 79px;
+}
+
+#character_skills_Hunting_4 {
+  position: absolute;
+  left: 177px;
+  top: 79px;
+}
+
+#character_skills_Hunting_5 {
+  position: absolute;
+  left: 200px;
+  top: 79px;
+}
+
+#character_skills_Hunting_6 {
+  position: absolute;
+  left: 223px;
+  top: 79px;
+}
+
+#character_skills_Song_1 {
+  position: absolute;
+  left: 109px;
+  top: 106px;
+}
+
+#character_skills_Song_2 {
+  position: absolute;
+  left: 132px;
+  top: 106px;
+}
+
+#character_skills_Song_3 {
+  position: absolute;
+  left: 155px;
+  top: 106px;
+}
+
+#character_skills_Song_4 {
+  position: absolute;
+  left: 177px;
+  top: 106px;
+}
+
+#character_skills_Song_5 {
+  position: absolute;
+  left: 200px;
+  top: 106px;
+}
+
+#character_skills_Song_6 {
+  position: absolute;
+  left: 223px;
+  top: 106px;
+}
+
+#character_skills_Craft_1 {
+  position: absolute;
+  left: 109px;
+  top: 132px;
+}
+
+#character_skills_Craft_2 {
+  position: absolute;
+  left: 132px;
+  top: 132px;
+}
+
+#character_skills_Craft_3 {
+  position: absolute;
+  left: 155px;
+  top: 132px;
+}
+
+#character_skills_Craft_4 {
+  position: absolute;
+  left: 177px;
+  top: 132px;
+}
+
+#character_skills_Craft_5 {
+  position: absolute;
+  left: 200px;
+  top: 132px;
+}
+
+#character_skills_Craft_6 {
+  position: absolute;
+  left: 223px;
+  top: 132px;
+}
+
+/* Skill Block */
+
+
+/* Skill Block */
+
+#character_div_skill_2 {
+  position: absolute;
+  left: 319px;
+  top: 373px;
+  width: 244px;
+  height: 152px;
+}
+
+#character_favoured_skills_Enhearten {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#character_favoured_skills_Travel {
+  position: absolute;
+  left: 0;
+  top: 26px;
+}
+
+#character_favoured_skills_Insight {
+  position: absolute;
+  left: 0;
+  top: 52px;
+}
+
+#character_favoured_skills_Healing {
+  position: absolute;
+  left: 0;
+  top: 79px;
+}
+
+#character_favoured_skills_Courtesy {
+  position: absolute;
+  left: 0;
+  top: 105px;
+}
+
+#character_favoured_skills_Battle {
+  position: absolute;
+  left: 0;
+  top: 131px;
+}
+
+#character_skills_Enhearten_1 {
+  position: absolute;
+  left: 109px;
+  top: 0;
+}
+
+#character_skills_Enhearten_2 {
+  position: absolute;
+  left: 132px;
+  top: 0;
+}
+
+#character_skills_Enhearten_3 {
+  position: absolute;
+  left: 155px;
+  top: 0;
+}
+
+#character_skills_Enhearten_4 {
+  position: absolute;
+  left: 177px;
+  top: 0;
+}
+
+#character_skills_Enhearten_5 {
+  position: absolute;
+  left: 200px;
+  top: 0;
+}
+
+#character_skills_Enhearten_6 {
+  position: absolute;
+  left: 223px;
+  top: 0;
+}
+
+#character_skills_Travel_1 {
+  position: absolute;
+  left: 109px;
+  top: 27px;
+}
+
+#character_skills_Travel_2 {
+  position: absolute;
+  left: 132px;
+  top: 27px;
+}
+
+#character_skills_Travel_3 {
+  position: absolute;
+  left: 155px;
+  top: 27px;
+}
+
+#character_skills_Travel_4 {
+  position: absolute;
+  left: 177px;
+  top: 27px;
+}
+
+#character_skills_Travel_5 {
+  position: absolute;
+  left: 200px;
+  top: 27px;
+}
+
+#character_skills_Travel_6 {
+  position: absolute;
+  left: 223px;
+  top: 27px;
+}
+
+#character_skills_Insight_1 {
+  position: absolute;
+  left: 109px;
+  top: 53px;
+}
+
+#character_skills_Insight_2 {
+  position: absolute;
+  left: 132px;
+  top: 53px;
+}
+
+#character_skills_Insight_3 {
+  position: absolute;
+  left: 155px;
+  top: 53px;
+}
+
+#character_skills_Insight_4 {
+  position: absolute;
+  left: 177px;
+  top: 53px;
+}
+
+#character_skills_Insight_5 {
+  position: absolute;
+  left: 200px;
+  top: 53px;
+}
+
+#character_skills_Insight_6 {
+  position: absolute;
+  left: 223px;
+  top: 53px;
+}
+
+#character_skills_Healing_1 {
+  position: absolute;
+  left: 109px;
+  top: 79px;
+}
+
+#character_skills_Healing_2 {
+  position: absolute;
+  left: 132px;
+  top: 79px;
+}
+
+#character_skills_Healing_3 {
+  position: absolute;
+  left: 155px;
+  top: 79px;
+}
+
+#character_skills_Healing_4 {
+  position: absolute;
+  left: 177px;
+  top: 79px;
+}
+
+#character_skills_Healing_5 {
+  position: absolute;
+  left: 200px;
+  top: 79px;
+}
+
+#character_skills_Healing_6 {
+  position: absolute;
+  left: 223px;
+  top: 79px;
+}
+
+#character_skills_Courtesy_1 {
+  position: absolute;
+  left: 109px;
+  top: 106px;
+}
+
+#character_skills_Courtesy_2 {
+  position: absolute;
+  left: 132px;
+  top: 106px;
+}
+
+#character_skills_Courtesy_3 {
+  position: absolute;
+  left: 155px;
+  top: 106px;
+}
+
+#character_skills_Courtesy_4 {
+  position: absolute;
+  left: 177px;
+  top: 106px;
+}
+
+#character_skills_Courtesy_5 {
+  position: absolute;
+  left: 200px;
+  top: 106px;
+}
+
+#character_skills_Courtesy_6 {
+  position: absolute;
+  left: 223px;
+  top: 106px;
+}
+
+#character_skills_Battle_1 {
+  position: absolute;
+  left: 109px;
+  top: 132px;
+}
+
+#character_skills_Battle_2 {
+  position: absolute;
+  left: 132px;
+  top: 132px;
+}
+
+#character_skills_Battle_3 {
+  position: absolute;
+  left: 155px;
+  top: 132px;
+}
+
+#character_skills_Battle_4 {
+  position: absolute;
+  left: 177px;
+  top: 132px;
+}
+
+#character_skills_Battle_5 {
+  position: absolute;
+  left: 200px;
+  top: 132px;
+}
+
+#character_skills_Battle_6 {
+  position: absolute;
+  left: 223px;
+  top: 132px;
+}
+
+/* Skill Block */
+
+
+/* Skill Block */
+
+#character_div_skill_3 {
+  position: absolute;
+  left: 593px;
+  top: 373px;
+  width: 244px;
+  height: 152px;
+}
+
+#character_favoured_skills_Persuade {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#character_favoured_skills_Stealth {
+  position: absolute;
+  left: 0;
+  top: 26px;
+}
+
+#character_favoured_skills_Scan {
+  position: absolute;
+  left: 0;
+  top: 52px;
+}
+
+#character_favoured_skills_Explore {
+  position: absolute;
+  left: 0;
+  top: 79px;
+}
+
+#character_favoured_skills_Riddle {
+  position: absolute;
+  left: 0;
+  top: 105px;
+}
+
+#character_favoured_skills_Lore {
+  position: absolute;
+  left: 0;
+  top: 131px;
+}
+
+#character_skills_Persuade_1 {
+  position: absolute;
+  left: 109px;
+  top: 0;
+}
+
+#character_skills_Persuade_2 {
+  position: absolute;
+  left: 132px;
+  top: 0;
+}
+
+#character_skills_Persuade_3 {
+  position: absolute;
+  left: 155px;
+  top: 0;
+}
+
+#character_skills_Persuade_4 {
+  position: absolute;
+  left: 177px;
+  top: 0;
+}
+
+#character_skills_Persuade_5 {
+  position: absolute;
+  left: 200px;
+  top: 0;
+}
+
+#character_skills_Persuade_6 {
+  position: absolute;
+  left: 223px;
+  top: 0;
+}
+
+#character_skills_Stealth_1 {
+  position: absolute;
+  left: 109px;
+  top: 27px;
+}
+
+#character_skills_Stealth_2 {
+  position: absolute;
+  left: 132px;
+  top: 27px;
+}
+
+#character_skills_Stealth_3 {
+  position: absolute;
+  left: 155px;
+  top: 27px;
+}
+
+#character_skills_Stealth_4 {
+  position: absolute;
+  left: 177px;
+  top: 27px;
+}
+
+#character_skills_Stealth_5 {
+  position: absolute;
+  left: 200px;
+  top: 27px;
+}
+
+#character_skills_Stealth_6 {
+  position: absolute;
+  left: 223px;
+  top: 27px;
+}
+
+#character_skills_Scan_1 {
+  position: absolute;
+  left: 109px;
+  top: 53px;
+}
+
+#character_skills_Scan_2 {
+  position: absolute;
+  left: 132px;
+  top: 53px;
+}
+
+#character_skills_Scan_3 {
+  position: absolute;
+  left: 155px;
+  top: 53px;
+}
+
+#character_skills_Scan_4 {
+  position: absolute;
+  left: 177px;
+  top: 53px;
+}
+
+#character_skills_Scan_5 {
+  position: absolute;
+  left: 200px;
+  top: 53px;
+}
+
+#character_skills_Scan_6 {
+  position: absolute;
+  left: 223px;
+  top: 53px;
+}
+
+#character_skills_Explore_1 {
+  position: absolute;
+  left: 109px;
+  top: 79px;
+}
+
+#character_skills_Explore_2 {
+  position: absolute;
+  left: 132px;
+  top: 79px;
+}
+
+#character_skills_Explore_3 {
+  position: absolute;
+  left: 155px;
+  top: 79px;
+}
+
+#character_skills_Explore_4 {
+  position: absolute;
+  left: 177px;
+  top: 79px;
+}
+
+#character_skills_Explore_5 {
+  position: absolute;
+  left: 200px;
+  top: 79px;
+}
+
+#character_skills_Explore_6 {
+  position: absolute;
+  left: 223px;
+  top: 79px;
+}
+
+#character_skills_Riddle_1 {
+  position: absolute;
+  left: 109px;
+  top: 106px;
+}
+
+#character_skills_Riddle_2 {
+  position: absolute;
+  left: 132px;
+  top: 106px;
+}
+
+#character_skills_Riddle_3 {
+  position: absolute;
+  left: 155px;
+  top: 106px;
+}
+
+#character_skills_Riddle_4 {
+  position: absolute;
+  left: 177px;
+  top: 106px;
+}
+
+#character_skills_Riddle_5 {
+  position: absolute;
+  left: 200px;
+  top: 106px;
+}
+
+#character_skills_Riddle_6 {
+  position: absolute;
+  left: 223px;
+  top: 106px;
+}
+
+#character_skills_Lore_1 {
+  position: absolute;
+  left: 109px;
+  top: 132px;
+}
+
+#character_skills_Lore_2 {
+  position: absolute;
+  left: 132px;
+  top: 132px;
+}
+
+#character_skills_Lore_3 {
+  position: absolute;
+  left: 155px;
+  top: 132px;
+}
+
+#character_skills_Lore_4 {
+  position: absolute;
+  left: 177px;
+  top: 132px;
+}
+
+#character_skills_Lore_5 {
+  position: absolute;
+  left: 200px;
+  top: 132px;
+}
+
+#character_skills_Lore_6 {
+  position: absolute;
+  left: 223px;
+  top: 132px;
+}
+
+/* Skill Block */
+
+/* Proficience Block */
+
+#character_div_proficience {
+  position: absolute;
+  left: 44px;
+  top: 582px;
+  width: 244px;
+  height: 100px;
+}
+
+#character_combat_proficiencies_Axes_1 {
+  position: absolute;
+  left: 109px;
+  top: 1px;
+}
+
+#character_combat_proficiencies_Axes_2 {
+  position: absolute;
+  left: 132px;
+  top: 1px;
+}
+
+#character_combat_proficiencies_Axes_3 {
+  position: absolute;
+  left: 155px;
+  top: 1px;
+}
+
+#character_combat_proficiencies_Axes_4 {
+  position: absolute;
+  left: 177px;
+  top: 1px;
+}
+
+#character_combat_proficiencies_Axes_5 {
+  position: absolute;
+  left: 200px;
+  top: 1px;
+}
+
+#character_combat_proficiencies_Axes_6 {
+  position: absolute;
+  left: 223px;
+  top: 1px;
+}
+
+#character_combat_proficiencies_Bows_1 {
+  position: absolute;
+  left: 109px;
+  top: 27px;
+}
+
+#character_combat_proficiencies_Bows_2 {
+  position: absolute;
+  left: 132px;
+  top: 27px;
+}
+
+#character_combat_proficiencies_Bows_3 {
+  position: absolute;
+  left: 155px;
+  top: 27px;
+}
+
+#character_combat_proficiencies_Bows_4 {
+  position: absolute;
+  left: 177px;
+  top: 27px;
+}
+
+#character_combat_proficiencies_Bows_5 {
+  position: absolute;
+  left: 200px;
+  top: 27px;
+}
+
+#character_combat_proficiencies_Bows_6 {
+  position: absolute;
+  left: 223px;
+  top: 27px;
+}
+
+#character_combat_proficiencies_Spears_1 {
+  position: absolute;
+  left: 109px;
+  top: 53px;
+}
+
+#character_combat_proficiencies_Spears_2 {
+  position: absolute;
+  left: 132px;
+  top: 53px;
+}
+
+#character_combat_proficiencies_Spears_3 {
+  position: absolute;
+  left: 155px;
+  top: 53px;
+}
+
+#character_combat_proficiencies_Spears_4 {
+  position: absolute;
+  left: 177px;
+  top: 53px;
+}
+
+#character_combat_proficiencies_Spears_5 {
+  position: absolute;
+  left: 200px;
+  top: 53px;
+}
+
+#character_combat_proficiencies_Spears_6 {
+  position: absolute;
+  left: 223px;
+  top: 53px;
+}
+
+#character_combat_proficiencies_Swords_1 {
+  position: absolute;
+  left: 109px;
+  top: 79px;
+}
+
+#character_combat_proficiencies_Swords_2 {
+  position: absolute;
+  left: 132px;
+  top: 79px;
+}
+
+#character_combat_proficiencies_Swords_3 {
+  position: absolute;
+  left: 155px;
+  top: 79px;
+}
+
+#character_combat_proficiencies_Swords_4 {
+  position: absolute;
+  left: 177px;
+  top: 79px;
+}
+
+#character_combat_proficiencies_Swords_5 {
+  position: absolute;
+  left: 200px;
+  top: 79px;
+}
+
+#character_combat_proficiencies_Swords_6 {
+  position: absolute;
+  left: 223px;
+  top: 79px;
+}
+
+/* Proficience Block */
+
+main textarea {
+  font-family: 'newbaskerville', sans-serif;
+  background-color: rgba(241,244,244,0.9);
+}
+
+#character_rewards {
+  position: absolute;
+  left: 310px;
+  top: 565px;
+  width: 252px;
+  height: 116px;
+
+  overflow-y: scroll;
+  border: 0;
+}
+
+#character_valour {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 523px;
+  top: 552px;
+  width: 31px;
+  font-size: 22px;
+
+  height: 32px;
+  z-index: 1;
+}
+
+#character_virtues {
+  position: absolute;
+  left: 584px;
+  top: 565px;
+  width: 252px;
+  height: 116px;
+
+  overflow-y: scroll;
+  border: 0;
+}
+
+#character_wisdow {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 798px;
+  top: 552px;
+  width: 31px;
+  font-size: 22px;
+
+  height: 32px;
+  z-index: 1;
+}
+
+/* Weapons Block 0 */
+
+#character_div_weapon_0 {
+  position: absolute;
+  left: 41px;
+  top: 720px;
+  width: 525px;
+  height: 26px;
+}
+
+#character_war_gear_0_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 0;
+  top: 0;
+  width: 144px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_0_damage {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 153px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_0_injury {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 198px;
+  top: 0;
+  width: 37px;
+  font-size: 10px;
+
+  height: 24px;
+}
+
+#character_war_gear_0_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 244px;
+  top: 0;
+  width: 35px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_0_notes {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 289px;
+  top: 0;
+  width: 223px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+/* Weapons Block 0 */
+
+/* Weapons Block 1 */
+
+#character_div_weapon_1 {
+  position: absolute;
+  left: 41px;
+  top: 746px;
+  width: 525px;
+  height: 26px;
+}
+
+#character_war_gear_1_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 0;
+  top: 0;
+  width: 144px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_1_damage {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 153px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_1_injury {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 198px;
+  top: 0;
+  width: 37px;
+  font-size: 10px;
+
+  height: 24px;
+}
+
+#character_war_gear_1_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 244px;
+  top: 0;
+  width: 35px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_1_notes {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 289px;
+  top: 0;
+  width: 223px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+/* Weapons Block 1 */
+
+/* Weapons Block 2 */
+
+#character_div_weapon_2 {
+  position: absolute;
+  left: 41px;
+  top: 772px;
+  width: 525px;
+  height: 26px;
+}
+
+#character_war_gear_2_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 0;
+  top: 0;
+  width: 144px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_2_damage {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 153px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_2_injury {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 198px;
+  top: 0;
+  width: 37px;
+  font-size: 10px;
+
+  height: 24px;
+}
+
+#character_war_gear_2_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 244px;
+  top: 0;
+  width: 35px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_2_notes {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 289px;
+  top: 0;
+  width: 223px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+/* Weapons Block 2 */
+
+/* Weapons Block 3 */
+
+#character_div_weapon_3 {
+  position: absolute;
+  left: 41px;
+  top: 798px;
+  width: 525px;
+  height: 26px;
+}
+
+#character_war_gear_3_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 0;
+  top: 0;
+  width: 144px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_3_damage {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 153px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_3_injury {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 198px;
+  top: 0;
+  width: 37px;
+  font-size: 10px;
+
+  height: 24px;
+}
+
+#character_war_gear_3_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 244px;
+  top: 0;
+  width: 35px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_war_gear_3_notes {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 289px;
+  top: 0;
+  width: 223px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+/* Weapons Block 3 */
+
+
+/* Armor Block */
+
+#character_div_armour {
+  position: absolute;
+  left: 591px;
+  top: 720px;
+  width: 250px;
+  height: 26px;
+}
+
+#character_armour_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 0;
+  top: 0;
+  width: 147px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_armour_protection {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 156px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_armour_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 201px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+/* Armor Block */
+
+/* Helm Block */
+
+#character_div_helm {
+  position: absolute;
+  left: 591px;
+  top: 746px;
+  width: 250px;
+  height: 26px;
+}
+
+#character_helm_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 28px;
+  top: 0;
+  width: 119px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_helm_protection {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 156px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+#character_helm_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 201px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 24px;
+}
+
+/* Helm Block */
+
+/* Shield Block */
+
+#character_div_shield {
+  position: absolute;
+  left: 591px;
+  top: 800px;
+  width: 250px;
+  height: 26px;
+}
+
+#character_shield_name {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 0;
+  top: 0;
+  width: 147px;
+  font-size: 12px;
+
+  height: 22px;
+}
+
+#character_shield_parry_modifier {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 156px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 22px;
+}
+
+#character_shield_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 201px;
+  top: 0;
+  width: 36px;
+  font-size: 12px;
+
+  height: 22px;
+}
+
+/* Shield Block */
+
+
+#character_current_stats_adventure_points {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 883px;
+  top: 332px;
+  width: 40px;
+  font-size: 22px;
+
+  height: 32px;
+}
+
+#character_current_stats_skill_points {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 964px;
+  top: 332px;
+  width: 40px;
+  font-size: 22px;
+
+  height: 32px;
+}
+
+#character_current_stats_fellowship_score {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 1045px;
+  top: 332px;
+  width: 40px;
+  font-size: 22px;
+
+  height: 32px;
+}
+
+/* Bloco de valores correntes */
+
+#character_div_endurance {
+  position: absolute;
+  left: 875px;
+  top: 415px;
+  width: 110px;
+  height: 120px;
+}
+
+#character_current_stats_load {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 70px;
+  top: 16px;
+  width: 31px;
+  font-size: 18px;
+
+  height: 32px;
+}
+
+#character_current_stats_current_endurance {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 12px;
+  top: 30px;
+  width: 50px;
+  font-size: 38px;
+}
+
+#character_current_stats_fatigue {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 69px;
+  top: 62px;
+  width: 31px;
+  font-size: 18px;
+
+  height: 32px;
+}
+
+/* Bloco de valores correntes */
+
+
+/* Bloco de valores correntes */
+
+#character_div_hope {
+  position: absolute;
+  left: 996px;
+  top: 415px;
+  width: 110px;
+  height: 120px;
+}
+
+#character_current_stats_shadow {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 70px;
+  top: 16px;
+  width: 31px;
+  font-size: 18px;
+
+  height: 32px;
+}
+
+#character_current_stats_current_hope {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 12px;
+  top: 30px;
+  width: 50px;
+  font-size: 38px;
+}
+
+#character_current_stats_shadow_scars {
+  position: absolute;
+  border: 0;
+  text-align: center;
+
+  left: 69px;
+  top: 62px;
+  width: 31px;
+  font-size: 18px;
+
+  height: 32px;
+}
+
+/* Bloco de valores correntes */
+
+
+#character_current_stats_weary {
+  position: absolute;
+  left: 868px;
+  top: 569px;
+}
+
+#character_current_stats_miserable {
+  position: absolute;
+  left: 868px;
+  top: 591px;
+}
+
+#character_current_stats_wounded {
+  position: absolute;
+  left: 868px;
+  top: 613px;
+}
+
+#character_current_stats_injury {
+  position: absolute;
+  border: 0;
+  text-align: left;
+
+  left: 986px;
+  top: 600px;
+  width: 116px;
+  font-size: 19px;
+}
+
+#character_notes {
+  position: absolute;
+  left: 859px;
+  top: 668px;
+  width: 252px;
+  height: 110px;
+  font-size: 12px;
+
+  overflow-y: scroll;
+  border: 0;
+}

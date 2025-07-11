@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title>OneRing Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.35, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/site_v2.css">
+    <link rel="icon" href="img/favicon.png">
+
+    <meta property="og:title" content="OneRing Match"/>
+    <meta property="og:image" content="https://oneringmatch.com/img/oneringmatch.jpg"/>
+    <meta property="og:description" content="This is an unofficial character generator to the game The One Ring 2ed"/>
+    <meta property="og:url" content="https://oneringmatch.com"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <meta property="og:type" content="website"/>
+  </head>
+  <body>
+    <div id="loading">
+      <img class="loading" src="img/loading.gif">
+    </div>
+
+    <nav>
+        <a id="fechar" class="menu" href="#"><img src="img/icons/xmark-solid.svg" /></a>
+        <a class="link link-reroll"><span id="nav_link_reroll_character" class="txt">Reroll Character</span></a>
+        <a class="link link-pdf"><span id="nav_link_export_fillable_pdf" class="txt">Export Fillable PDF</span></a>
+        <a class="link link-youtube"><span id="nav_link_channel" class="txt">Channel Flecha Mágica</span></a>
+        <a class="link link-logs"><span id="nav_link_logs" class="txt">Creation Choices</span></a>
+        <a class="link link-about"><span id="nav_link_about" class="txt">About</span></a>
+    </nav>
+
+    <header>
+      <a id="abrir" class="menu" href="#"><img src="img/icons/bars-solid.svg" /></a>
+      <a class="logo" href="index.html"><img src="img/logo.png" /></a>
+      <div class="i18n">
+        <img src="img/icons/globe-solid.svg" />
+        <select id="select-i18n">
+          <option value="pt-BR">Português</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="logs invisible">
+      <h1 id="logs-h1-title">Creation Choices</h1>
+      <span id="log-span1"></span>
+      <br><br>
+      <button id="logs-close-logs"><img src="img/icons/list-solid-white.svg"><span>Close Creation Choices</span></button>
+    </div>
+
+    <div class="about invisible">
+      <h1 id="about-h1-title">About</h1>
+      <span id="about-span1">The game <span class="text-emphasis">The One Ring 2ed</span>, their logos, some of the game rules and images in the character sheet are trademarks of <span class="text-emphasis">Free League Publishing</span>. See more about this game on the official page: <a href="https://freeleaguepublishing.com/en/games/the-one-ring/" class="basic" target="_blank">freeleaguepublishing.com</a><br><br>The generation of characters considers the creation rules available in the book <span class="text-emphasis">The One Ring: Core Rules</span> (segunda edição), and also the complements of Heroic Cultures available in the books <span class="text-emphasis">The One Ring: Peoples of Wilderland</span> and <span class="text-emphasis">The One Ring: Rivendell</span>. Regarding random generation, the algorithm tends to make “good” choices while maintaining random criteria to deliver unique characters.<br><br>This page was developed by <span class="text-emphasis">Flecha Mágica</span>, an RPG channel with material associated with the hobby on all social networks. Follow us on <a href="https://www.youtube.com/@flechamagica" class="basic" target="_blank">Flecha Mágica\'s YouTube</a> so we can keep creating content like this.</span>
+      <br><br>
+      <button id="about-close-about"><img src="img/icons/circle-info-solid-white.svg"><span>Close About</span></button>
+    </div>
+
+    <div class="form">
+      <h1 id="form-h1-title">Character Roller</h1>
+      <span id="form-span1">This is an unofficial character generator to the game <span class="text-emphasis">The One Ring 2ed</span>, published by <span class="text-emphasis">Free League Publishing</span>. To learn more about the game or this generator, go to the <a href="#" class="basic" id="form-link-about"><img src="img/icons/circle-info-solid.svg" class="basic">About</a> page.</span>
+      <span id="form-span2">Did you like <span class="text-emphasis">OneRing Match</span>? Follow us on the <a href="https://www.youtube.com/@flechamagica" class="basic"><img src="img/icons/youtube.svg" class="basic">Flecha Mágica\'s YouTube channel</a> so we can keep creating content like this.</span>
+
+      <br>
+      <br>
+      <span class="form-field">
+        <span id="form-label-select1">Heroic Culture</span>
+        <select id="form-select-heroic-culture" class="form-select">
+          <option value="all">All Heroic Cultures</option>
+        </select>
+      </span>
+      <span class="form-field">
+        <span id="form-label-select2">Calling</span>
+        <select id="form-select-calling" class="form-select">
+          <option value="all">All Callings</option>
+        </select>
+      </span>
+
+      <br>
+      <span class="form-buttons">
+        <button id="form-link-logs"><img src="img/icons/list-solid-white.svg"><span>Creation Choices</span></button>
+        <button id="form-reroll-character"><img src="img/icons/dice-solid-white.svg"><span>Reroll Character</span></button>
+        <button id="form-export-fillable-pdf"><img src="img/icons/file-pdf-solid-white.svg"><span>Export Fillable PDF</span></button>
+      </span>
+    </div>
+
+    <main>
+      <form id="form-pdf-roller" method="post" action="https://oneringmatch.com/pdf.roller" target="_blank">
+
+        <input name="hidden_character_sheet" id="hidden_character_sheet" type="hidden" value="">
+        <input name="hidden_character_imagem_path" id="hidden_character_imagem_path" type="hidden" value="">
+
+        <input name="character_name" id="character_name" type="text" value="">
+
+        <input name="character_heroic_culture" id="character_heroic_culture" type="text" value="">
+        <input name="character_cultural_blessing" id="character_cultural_blessing" type="text" value="">
+        <input name="character_calling" id="character_calling" type="text" value="">
+
+        <input name="character_age" id="character_age" type="text" value="">
+        <input name="character_standard_of_living" id="character_standard_of_living" type="text" value="">
+        <input name="character_patron" id="character_patron" type="text" value="">
+        <input name="character_shadow_path" id="character_shadow_path" type="text" value="">
+
+        <input name="character_treasure" id="character_treasure" type="text" value="">
+
+        <input name="character_distinctive_features_1" id="character_distinctive_features_1" type="text" value="">
+        <input name="character_distinctive_features_2" id="character_distinctive_features_2" type="text" value="">
+        <input name="character_flaws" id="character_flaws" type="text" value="">
+
+        <img id="character_imagem_path" src="img/characters/base.jpg">
+
+        <div id="character_div_strength" class="attributes">
+          <input name="character_attributes_strength" id="character_attributes_strength" type="text" value="">
+          <input name="character_attributes_TN_strength" id="character_attributes_TN_strength" type="text" value="">
+          <input name="character_attributes_endurance" id="character_attributes_endurance" type="text" value="">
+        </div>
+
+        <div id="character_div_heart" class="attributes">
+          <input name="character_attributes_heart" id="character_attributes_heart" type="text" value="">
+          <input name="character_attributes_TN_heart" id="character_attributes_TN_heart" type="text" value="">
+          <input name="character_attributes_hope" id="character_attributes_hope" type="text" value="">
+        </div>
+
+        <div id="character_div_wits" class="attributes">
+          <input name="character_attributes_wits" id="character_attributes_wits" type="text" value="">
+          <input name="character_attributes_TN_wits" id="character_attributes_TN_wits" type="text" value="">
+          <input name="character_attributes_parry" id="character_attributes_parry" type="text" value="">
+        </div>
+
+        <div id="character_div_skill_1" class="skills">
+          <input name="character_favoured_skills_Awe" id="character_favoured_skills_Awe" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Athletics" id="character_favoured_skills_Athletics" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Awareness" id="character_favoured_skills_Awareness" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Hunting" id="character_favoured_skills_Hunting" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Song" id="character_favoured_skills_Song" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Craft" id="character_favoured_skills_Craft" type="checkbox" class="marcador">
+
+          <input name="character_skills_Awe_1" id="character_skills_Awe_1" type="checkbox" class="marcador">
+          <input name="character_skills_Awe_2" id="character_skills_Awe_2" type="checkbox" class="marcador">
+          <input name="character_skills_Awe_3" id="character_skills_Awe_3" type="checkbox" class="marcador">
+          <input name="character_skills_Awe_4" id="character_skills_Awe_4" type="checkbox" class="marcador">
+          <input name="character_skills_Awe_5" id="character_skills_Awe_5" type="checkbox" class="marcador">
+          <input name="character_skills_Awe_6" id="character_skills_Awe_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Athletics_1" id="character_skills_Athletics_1" type="checkbox" class="marcador">
+          <input name="character_skills_Athletics_2" id="character_skills_Athletics_2" type="checkbox" class="marcador">
+          <input name="character_skills_Athletics_3" id="character_skills_Athletics_3" type="checkbox" class="marcador">
+          <input name="character_skills_Athletics_4" id="character_skills_Athletics_4" type="checkbox" class="marcador">
+          <input name="character_skills_Athletics_5" id="character_skills_Athletics_5" type="checkbox" class="marcador">
+          <input name="character_skills_Athletics_6" id="character_skills_Athletics_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Awareness_1" id="character_skills_Awareness_1" type="checkbox" class="marcador">
+          <input name="character_skills_Awareness_2" id="character_skills_Awareness_2" type="checkbox" class="marcador">
+          <input name="character_skills_Awareness_3" id="character_skills_Awareness_3" type="checkbox" class="marcador">
+          <input name="character_skills_Awareness_4" id="character_skills_Awareness_4" type="checkbox" class="marcador">
+          <input name="character_skills_Awareness_5" id="character_skills_Awareness_5" type="checkbox" class="marcador">
+          <input name="character_skills_Awareness_6" id="character_skills_Awareness_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Hunting_1" id="character_skills_Hunting_1" type="checkbox" class="marcador">
+          <input name="character_skills_Hunting_2" id="character_skills_Hunting_2" type="checkbox" class="marcador">
+          <input name="character_skills_Hunting_3" id="character_skills_Hunting_3" type="checkbox" class="marcador">
+          <input name="character_skills_Hunting_4" id="character_skills_Hunting_4" type="checkbox" class="marcador">
+          <input name="character_skills_Hunting_5" id="character_skills_Hunting_5" type="checkbox" class="marcador">
+          <input name="character_skills_Hunting_6" id="character_skills_Hunting_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Song_1" id="character_skills_Song_1" type="checkbox" class="marcador">
+          <input name="character_skills_Song_2" id="character_skills_Song_2" type="checkbox" class="marcador">
+          <input name="character_skills_Song_3" id="character_skills_Song_3" type="checkbox" class="marcador">
+          <input name="character_skills_Song_4" id="character_skills_Song_4" type="checkbox" class="marcador">
+          <input name="character_skills_Song_5" id="character_skills_Song_5" type="checkbox" class="marcador">
+          <input name="character_skills_Song_6" id="character_skills_Song_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Craft_1" id="character_skills_Craft_1" type="checkbox" class="marcador">
+          <input name="character_skills_Craft_2" id="character_skills_Craft_2" type="checkbox" class="marcador">
+          <input name="character_skills_Craft_3" id="character_skills_Craft_3" type="checkbox" class="marcador">
+          <input name="character_skills_Craft_4" id="character_skills_Craft_4" type="checkbox" class="marcador">
+          <input name="character_skills_Craft_5" id="character_skills_Craft_5" type="checkbox" class="marcador">
+          <input name="character_skills_Craft_6" id="character_skills_Craft_6" type="checkbox" class="marcador">
+        </div>
+
+        <div id="character_div_skill_2" class="skills">
+          <input name="character_favoured_skills_Enhearten" id="character_favoured_skills_Enhearten" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Travel" id="character_favoured_skills_Travel" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Insight" id="character_favoured_skills_Insight" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Healing" id="character_favoured_skills_Healing" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Courtesy" id="character_favoured_skills_Courtesy" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Battle" id="character_favoured_skills_Battle" type="checkbox" class="marcador">
+
+          <input name="character_skills_Enhearten_1" id="character_skills_Enhearten_1" type="checkbox" class="marcador">
+          <input name="character_skills_Enhearten_2" id="character_skills_Enhearten_2" type="checkbox" class="marcador">
+          <input name="character_skills_Enhearten_3" id="character_skills_Enhearten_3" type="checkbox" class="marcador">
+          <input name="character_skills_Enhearten_4" id="character_skills_Enhearten_4" type="checkbox" class="marcador">
+          <input name="character_skills_Enhearten_5" id="character_skills_Enhearten_5" type="checkbox" class="marcador">
+          <input name="character_skills_Enhearten_6" id="character_skills_Enhearten_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Travel_1" id="character_skills_Travel_1" type="checkbox" class="marcador">
+          <input name="character_skills_Travel_2" id="character_skills_Travel_2" type="checkbox" class="marcador">
+          <input name="character_skills_Travel_3" id="character_skills_Travel_3" type="checkbox" class="marcador">
+          <input name="character_skills_Travel_4" id="character_skills_Travel_4" type="checkbox" class="marcador">
+          <input name="character_skills_Travel_5" id="character_skills_Travel_5" type="checkbox" class="marcador">
+          <input name="character_skills_Travel_6" id="character_skills_Travel_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Insight_1" id="character_skills_Insight_1" type="checkbox" class="marcador">
+          <input name="character_skills_Insight_2" id="character_skills_Insight_2" type="checkbox" class="marcador">
+          <input name="character_skills_Insight_3" id="character_skills_Insight_3" type="checkbox" class="marcador">
+          <input name="character_skills_Insight_4" id="character_skills_Insight_4" type="checkbox" class="marcador">
+          <input name="character_skills_Insight_5" id="character_skills_Insight_5" type="checkbox" class="marcador">
+          <input name="character_skills_Insight_6" id="character_skills_Insight_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Healing_1" id="character_skills_Healing_1" type="checkbox" class="marcador">
+          <input name="character_skills_Healing_2" id="character_skills_Healing_2" type="checkbox" class="marcador">
+          <input name="character_skills_Healing_3" id="character_skills_Healing_3" type="checkbox" class="marcador">
+          <input name="character_skills_Healing_4" id="character_skills_Healing_4" type="checkbox" class="marcador">
+          <input name="character_skills_Healing_5" id="character_skills_Healing_5" type="checkbox" class="marcador">
+          <input name="character_skills_Healing_6" id="character_skills_Healing_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Courtesy_1" id="character_skills_Courtesy_1" type="checkbox" class="marcador">
+          <input name="character_skills_Courtesy_2" id="character_skills_Courtesy_2" type="checkbox" class="marcador">
+          <input name="character_skills_Courtesy_3" id="character_skills_Courtesy_3" type="checkbox" class="marcador">
+          <input name="character_skills_Courtesy_4" id="character_skills_Courtesy_4" type="checkbox" class="marcador">
+          <input name="character_skills_Courtesy_5" id="character_skills_Courtesy_5" type="checkbox" class="marcador">
+          <input name="character_skills_Courtesy_6" id="character_skills_Courtesy_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Battle_1" id="character_skills_Battle_1" type="checkbox" class="marcador">
+          <input name="character_skills_Battle_2" id="character_skills_Battle_2" type="checkbox" class="marcador">
+          <input name="character_skills_Battle_3" id="character_skills_Battle_3" type="checkbox" class="marcador">
+          <input name="character_skills_Battle_4" id="character_skills_Battle_4" type="checkbox" class="marcador">
+          <input name="character_skills_Battle_5" id="character_skills_Battle_5" type="checkbox" class="marcador">
+          <input name="character_skills_Battle_6" id="character_skills_Battle_6" type="checkbox" class="marcador">
+        </div>
+
+        <div id="character_div_skill_3" class="skills">
+          <input name="character_favoured_skills_Persuade" id="character_favoured_skills_Persuade" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Stealth" id="character_favoured_skills_Stealth" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Scan" id="character_favoured_skills_Scan" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Explore" id="character_favoured_skills_Explore" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Riddle" id="character_favoured_skills_Riddle" type="checkbox" class="marcador">
+          <input name="character_favoured_skills_Lore" id="character_favoured_skills_Lore" type="checkbox" class="marcador">
+
+          <input name="character_skills_Persuade_1" id="character_skills_Persuade_1" type="checkbox" class="marcador">
+          <input name="character_skills_Persuade_2" id="character_skills_Persuade_2" type="checkbox" class="marcador">
+          <input name="character_skills_Persuade_3" id="character_skills_Persuade_3" type="checkbox" class="marcador">
+          <input name="character_skills_Persuade_4" id="character_skills_Persuade_4" type="checkbox" class="marcador">
+          <input name="character_skills_Persuade_5" id="character_skills_Persuade_5" type="checkbox" class="marcador">
+          <input name="character_skills_Persuade_6" id="character_skills_Persuade_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Stealth_1" id="character_skills_Stealth_1" type="checkbox" class="marcador">
+          <input name="character_skills_Stealth_2" id="character_skills_Stealth_2" type="checkbox" class="marcador">
+          <input name="character_skills_Stealth_3" id="character_skills_Stealth_3" type="checkbox" class="marcador">
+          <input name="character_skills_Stealth_4" id="character_skills_Stealth_4" type="checkbox" class="marcador">
+          <input name="character_skills_Stealth_5" id="character_skills_Stealth_5" type="checkbox" class="marcador">
+          <input name="character_skills_Stealth_6" id="character_skills_Stealth_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Scan_1" id="character_skills_Scan_1" type="checkbox" class="marcador">
+          <input name="character_skills_Scan_2" id="character_skills_Scan_2" type="checkbox" class="marcador">
+          <input name="character_skills_Scan_3" id="character_skills_Scan_3" type="checkbox" class="marcador">
+          <input name="character_skills_Scan_4" id="character_skills_Scan_4" type="checkbox" class="marcador">
+          <input name="character_skills_Scan_5" id="character_skills_Scan_5" type="checkbox" class="marcador">
+          <input name="character_skills_Scan_6" id="character_skills_Scan_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Explore_1" id="character_skills_Explore_1" type="checkbox" class="marcador">
+          <input name="character_skills_Explore_2" id="character_skills_Explore_2" type="checkbox" class="marcador">
+          <input name="character_skills_Explore_3" id="character_skills_Explore_3" type="checkbox" class="marcador">
+          <input name="character_skills_Explore_4" id="character_skills_Explore_4" type="checkbox" class="marcador">
+          <input name="character_skills_Explore_5" id="character_skills_Explore_5" type="checkbox" class="marcador">
+          <input name="character_skills_Explore_6" id="character_skills_Explore_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Riddle_1" id="character_skills_Riddle_1" type="checkbox" class="marcador">
+          <input name="character_skills_Riddle_2" id="character_skills_Riddle_2" type="checkbox" class="marcador">
+          <input name="character_skills_Riddle_3" id="character_skills_Riddle_3" type="checkbox" class="marcador">
+          <input name="character_skills_Riddle_4" id="character_skills_Riddle_4" type="checkbox" class="marcador">
+          <input name="character_skills_Riddle_5" id="character_skills_Riddle_5" type="checkbox" class="marcador">
+          <input name="character_skills_Riddle_6" id="character_skills_Riddle_6" type="checkbox" class="marcador">
+
+          <input name="character_skills_Lore_1" id="character_skills_Lore_1" type="checkbox" class="marcador">
+          <input name="character_skills_Lore_2" id="character_skills_Lore_2" type="checkbox" class="marcador">
+          <input name="character_skills_Lore_3" id="character_skills_Lore_3" type="checkbox" class="marcador">
+          <input name="character_skills_Lore_4" id="character_skills_Lore_4" type="checkbox" class="marcador">
+          <input name="character_skills_Lore_5" id="character_skills_Lore_5" type="checkbox" class="marcador">
+          <input name="character_skills_Lore_6" id="character_skills_Lore_6" type="checkbox" class="marcador">
+        </div>
+
+        <div id="character_div_proficience" class="skills">
+          <input name="character_combat_proficiencies_Axes_1" id="character_combat_proficiencies_Axes_1" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Axes_2" id="character_combat_proficiencies_Axes_2" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Axes_3" id="character_combat_proficiencies_Axes_3" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Axes_4" id="character_combat_proficiencies_Axes_4" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Axes_5" id="character_combat_proficiencies_Axes_5" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Axes_6" id="character_combat_proficiencies_Axes_6" type="checkbox" class="marcador">
+
+          <input name="character_combat_proficiencies_Bows_1" id="character_combat_proficiencies_Bows_1" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Bows_2" id="character_combat_proficiencies_Bows_2" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Bows_3" id="character_combat_proficiencies_Bows_3" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Bows_4" id="character_combat_proficiencies_Bows_4" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Bows_5" id="character_combat_proficiencies_Bows_5" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Bows_6" id="character_combat_proficiencies_Bows_6" type="checkbox" class="marcador">
+
+          <input name="character_combat_proficiencies_Spears_1" id="character_combat_proficiencies_Spears_1" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Spears_2" id="character_combat_proficiencies_Spears_2" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Spears_3" id="character_combat_proficiencies_Spears_3" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Spears_4" id="character_combat_proficiencies_Spears_4" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Spears_5" id="character_combat_proficiencies_Spears_5" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Spears_6" id="character_combat_proficiencies_Spears_6" type="checkbox" class="marcador">
+
+          <input name="character_combat_proficiencies_Swords_1" id="character_combat_proficiencies_Swords_1" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Swords_2" id="character_combat_proficiencies_Swords_2" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Swords_3" id="character_combat_proficiencies_Swords_3" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Swords_4" id="character_combat_proficiencies_Swords_4" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Swords_5" id="character_combat_proficiencies_Swords_5" type="checkbox" class="marcador">
+          <input name="character_combat_proficiencies_Swords_6" id="character_combat_proficiencies_Swords_6" type="checkbox" class="marcador">
+        </div>
+
+        <textarea name="character_rewards" id="character_rewards"></textarea>
+        <input name="character_valour" id="character_valour" type="text" value="">
+
+        <textarea name="character_virtues" id="character_virtues"></textarea>
+        <input name="character_wisdow" id="character_wisdow" type="text" value="">
+
+        <div id="character_div_weapon_0" class="skills">
+          <input name="character_war_gear_0_name" id="character_war_gear_0_name" type="text" value="">
+          <input name="character_war_gear_0_damage" id="character_war_gear_0_damage" type="text" value="">
+          <input name="character_war_gear_0_injury" id="character_war_gear_0_injury" type="text" value="">
+          <input name="character_war_gear_0_load" id="character_war_gear_0_load" type="text" value="">
+          <input name="character_war_gear_0_notes" id="character_war_gear_0_notes" type="text" value="">
+        </div>
+
+        <div id="character_div_weapon_1" class="skills">
+          <input name="character_war_gear_1_name" id="character_war_gear_1_name" type="text" value="">
+          <input name="character_war_gear_1_damage" id="character_war_gear_1_damage" type="text" value="">
+          <input name="character_war_gear_1_injury" id="character_war_gear_1_injury" type="text" value="">
+          <input name="character_war_gear_1_load" id="character_war_gear_1_load" type="text" value="">
+          <input name="character_war_gear_1_notes" id="character_war_gear_1_notes" type="text" value="">
+        </div>
+
+        <div id="character_div_weapon_2" class="skills">
+          <input name="character_war_gear_2_name" id="character_war_gear_2_name" type="text" value="">
+          <input name="character_war_gear_2_damage" id="character_war_gear_2_damage" type="text" value="">
+          <input name="character_war_gear_2_injury" id="character_war_gear_2_injury" type="text" value="">
+          <input name="character_war_gear_2_load" id="character_war_gear_2_load" type="text" value="">
+          <input name="character_war_gear_2_notes" id="character_war_gear_2_notes" type="text" value="">
+        </div>
+
+        <div id="character_div_weapon_3" class="skills">
+          <input name="character_war_gear_3_name" id="character_war_gear_3_name" type="text" value="">
+          <input name="character_war_gear_3_damage" id="character_war_gear_3_damage" type="text" value="">
+          <input name="character_war_gear_3_injury" id="character_war_gear_3_injury" type="text" value="">
+          <input name="character_war_gear_3_load" id="character_war_gear_3_load" type="text" value="">
+          <input name="character_war_gear_3_notes" id="character_war_gear_3_notes" type="text" value="">
+        </div>
+
+        <div id="character_div_armour" class="skills">
+          <input name="character_armour_name" id="character_armour_name" type="text" value="">
+          <input name="character_armour_protection" id="character_armour_protection" type="text" value="">
+          <input name="character_armour_load" id="character_armour_load" type="text" value="">
+        </div>
+
+        <div id="character_div_helm" class="skills">
+          <input name="character_helm_name" id="character_helm_name" type="text" value="">
+          <input name="character_helm_protection" id="character_helm_protection" type="text" value="">
+          <input name="character_helm_load" id="character_helm_load" type="text" value="">
+        </div>
+
+        <div id="character_div_shield" class="skills">
+          <input name="character_shield_name" id="character_shield_name" type="text" value="">
+          <input name="character_shield_parry_modifier" id="character_shield_parry_modifier" type="text" value="">
+          <input name="character_shield_load" id="character_shield_load" type="text" value="">
+        </div>
+
+        <input name="character_current_stats_adventure_points" id="character_current_stats_adventure_points" type="text" value="">
+        <input name="character_current_stats_skill_points" id="character_current_stats_skill_points" type="text" value="">
+        <input name="character_current_stats_fellowship_score" id="character_current_stats_fellowship_score" type="text" value="">
+
+        <div id="character_div_endurance" class="attributes">
+          <input name="character_current_stats_load" id="character_current_stats_load" type="text" value="">
+          <input name="character_current_stats_current_endurance" id="character_current_stats_current_endurance" type="text" value="">
+          <input name="character_current_stats_fatigue" id="character_current_stats_fatigue" type="text" value="">
+        </div>
+
+        <div id="character_div_hope" class="attributes">
+          <input name="character_current_stats_shadow" id="character_current_stats_shadow" type="text" value="">
+          <input name="character_current_stats_current_hope" id="character_current_stats_current_hope" type="text" value="">
+          <input name="character_current_stats_shadow_scars" id="character_current_stats_shadow_scars" type="text" value="">
+        </div>
+
+        <input name="character_current_stats_weary" id="character_current_stats_weary" type="checkbox" class="marcador">
+        <input name="character_current_stats_miserable" id="character_current_stats_miserable" type="checkbox" class="marcador">
+        <input name="character_current_stats_wounded" id="character_current_stats_wounded" type="checkbox" class="marcador">
+        <input name="character_current_stats_injury" id="character_current_stats_injury" type="text" value="">
+
+        <textarea name="character_notes" id="character_notes"></textarea>
+
+      </form>
+    </main>
+
+    <script type="text/javascript" src="js/basic.js"></script>
+    <script type="text/javascript" src="js/i18n_v6.js"></script>
+    <script type="text/javascript" src="js/script_v7.js"></script>
+    <script type="text/javascript" src="js/test.js"></script>
+    <script type="text/javascript" src="js/menu.js"></script>
+  </body>
+</html>
