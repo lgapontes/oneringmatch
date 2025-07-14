@@ -752,7 +752,7 @@ const HEROIC_CULTURES = {
       'f': ['img/characters/elves_of_lindon/f0.jpg','img/characters/elves_of_lindon/f1.jpg']
     },
     heroic_cultures_select: 'Elves of Lindon (The One Ring Core Rules)',
-    cultural_blessing: '1 Hope to Magical Success (only Skills, not Miserable)',
+    cultural_blessing: '1 Hope to Magical Success (only Skills at least one rank, not Miserable)',
     standard_of_living: 'Frugal',
     attributes: [
       {strength: 5, heart: 2, wits: 7},
@@ -1004,7 +1004,7 @@ const HEROIC_CULTURES = {
       'f': ['img/characters/high_elves_of_rivendell/f0.jpg','img/characters/high_elves_of_rivendell/f1.jpg']
     },
     heroic_cultures_select: 'High Elves of Rivendell (The One Ring: Rivendell)',
-    cultural_blessing: '1 Hope to Magical Success (only Skills, not Miserable), +1 Attribute',
+    cultural_blessing: '1 Hope to Magical Success (only Skills at least one rank, not Miserable), +1 Attribute',
     standard_of_living: 'Prosperous',
     attributes: [
       {strength: 5, heart: 2, wits: 7},
@@ -1248,7 +1248,71 @@ const HEROIC_CULTURES = {
     shield_restriction: [],
     armour_restriction: [],
     helmet_restriction: false
-  }
+  },
+
+  'Dwarves of Nogrod and Belegost': {
+    images: {
+      'm': ['img/characters/dwarves_of_nogrod_and_belegost/m0.jpg','img/characters/dwarves_of_nogrod_and_belegost/m1.jpg'],
+      'f': ['img/characters/dwarves_of_nogrod_and_belegost/f0.jpg','img/characters/dwarves_of_nogrod_and_belegost/f1.jpg']
+    },
+    heroic_cultures_select: 'Dwarves of Nogrod and Belegost (Moria: Through the Doors of Durin)',
+    cultural_blessing: '1/2 Load of armour and helm',
+    standard_of_living: 'Common',
+    attributes: [
+      {strength: 7, heart: 2, wits: 5},
+      {strength: 7, heart: 3, wits: 4},
+      {strength: 6, heart: 3, wits: 5},
+      {strength: 6, heart: 4, wits: 4},
+      {strength: 5, heart: 4, wits: 5},
+      {strength: 6, heart: 2, wits: 6}
+    ],
+    derived_stats: {
+      getEndurance: (strength) => { return strength + 22; },
+      getHope: (heart) => { return heart + 8; },
+      getParry: (wits) => { return wits + 10; },
+      getTargetNumberOfStrength: (strength) => { return 20 - strength; },
+      getTargetNumberOfHeart: (heart) => { return 20 - heart; },
+      getTargetNumberOfWits: (wits) => { return 20 - wits; }
+    },
+    skills: {
+      'Awe': 2,
+      'Athletics': 1,
+      'Awareness': 0,
+      'Hunting': 0,
+      'Song': 1,
+      'Craft': 3,
+      'Enhearten': 0,
+      'Travel': 2,
+      'Insight': 0,
+      'Healing': 0,
+      'Courtesy': 0,
+      'Battle': 0,
+      'Persuade': 0,
+      'Stealth': 0,
+      'Scan': 3,
+      'Explore': 2,
+      'Riddle': 2,
+      'Lore': 2
+    },
+    favoured_skills: ['Awe','Craft'],
+    combat_proficiencies_2_points: ['Axes','Swords'],
+    combat_proficiencies_1_point: ['Axes','Bows','Spears','Swords'],
+    distinctive_features_list: ['Cunning','Fierce','Proud','Rustic','Secretive','Stern','Wary','Wilful'],
+    range_ages: {min: 50, max: 90},
+    names: {
+      male_names: 'Ai,Anar,Beli,Bláin,Borin,Burin,Bruni,Farin,Flói,Frár,Frerin,Frór,Ginar,Gróin,Grór,Hanar,Hepti,Iari,Lófar,Lóni,Náli,Nár,Niping,Nói,Núr,Nýrád,Ónar,Póri,Regin,Svior,Veig,Vidar'.split(','),
+      female_names: 'Adís,Afrid,Agda,Bersa,Birna,Dagrún,Dís,Drífa,Edda,Elin,Fenja,Frida,Geira,Gísla,Hadda,Hón,Ida,Ilmr,Jóra,Kára,Kóna,Líf,Línhild,Már,Mist,Nál,Oda,Ósk,Rán,Rinda,Sefa,Syn,Tóra,Trana,Úlfrún,Vírún,Yrr'.split(','),
+      family_names: []
+    },
+    ponies_and_horses: clone(STANDARDS_OF_LIVING['Common'].ponies_and_horses),
+    previous_experience: 10,
+    extra_notes: 'Dwarven cannot use: Great Bow, Great Spear, and Great Shield. Can only choose another Dwarf as your Fellowship Focus.',
+    weapons_restriction: ['Great Bow','Great Spear'],
+    shield_restriction: ['Great Shield'],
+    armour_restriction: [],
+    helmet_restriction: false
+  },
+
 };
 
 const CALLINGS = {

@@ -58,6 +58,7 @@ header a.logo::after {
   content: '';
 }
 
+/*
 header a.logo::after {
   display: inline-block;
   margin: 46px -28px;
@@ -71,6 +72,7 @@ header a.logo::after {
   font-size: 1em;
   text-decoration: none;
 }
+*/
 
 header a.logo img {
   display: block;
