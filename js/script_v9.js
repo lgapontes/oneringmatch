@@ -1,6 +1,101 @@
 /*
+  API Functions
+*/
+const LOCALHOST = false;
+const URL_REMOTA = 'https://oneringmatch.com';
+const URL_LOCAL = 'http://localhost';
+
+function createURL(path) {
+  return `${(LOCALHOST ? URL_LOCAL : URL_REMOTA)}/api/${path}`;
+}
+
+function api(method,url,success,fail,json) {
+    var xhr = new XMLHttpRequest();
+    xhr.open(method,url);
+    xhr.timeout = 10000;
+
+    xhr.addEventListener('load',function(){
+        if (xhr.status == 200) {
+            if ( (method != 'POST') && (method != 'DELETE') ) {
+              var json = JSON.parse(xhr.responseText);
+              success(json);
+              return;
+            } else {
+              success();
+              return;
+            }
+        } else {
+            fail(xhr.status + ': ' + xhr.statusText);
+            return;
+        }
+    });
+    xhr.addEventListener('timeout',function(){
+        fail('Unable to get content!');
+        return;
+    });
+    xhr.addEventListener('error',function(evento){
+        fail('An error occurred while retrieving the content!');
+        return;
+    });
+
+    if (json != undefined) {
+        xhr.send(json);
+    } else {
+        xhr.send();
+    }
+}
+
+function getNumberCharacters(callback) {
+    api(
+      'GET',
+      createURL('log.php'),
+      (json)=>{
+        callback(json.number_characters_created);
+      },
+      (msg)=>{
+        console.error(msg);
+        callback(0);
+      },
+      {}
+    );
+}
+
+function addNumberCharacters(callback) {
+    api(
+      'PUT',
+      createURL('log.php'),
+      (json)=>{
+        callback(json.number_characters_created);
+      },
+      (msg)=>{
+        console.error(msg);
+        callback(0);
+      },
+      {}
+    );
+}
+
+/*
   Basic Functions
 */
+
+function formatInternationalizationNumber(amount) {
+  const currencyCode = 'USD';
+  const locale = CURRENT_I18N;
+
+  const formatter = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: currencyCode,
+    currencyDisplay: 'code',
+    maximumFractionDigits: 0,
+    minimumFractionDigits: 0
+  });
+
+  let formattedAmount = formatter.format(amount);
+  formattedAmount = formattedAmount.replace(currencyCode, '').trim();
+
+  return formattedAmount;
+}
 
 function checkIfHelm(item) {
   return checkIfContains(HELMS,item.name);
@@ -1313,6 +1408,69 @@ const HEROIC_CULTURES = {
     helmet_restriction: false
   },
 
+  'Elves of Lórien': {
+    images: {
+      'm': ['img/characters/realms_of_the_three_rings/m0.jpg','img/characters/realms_of_the_three_rings/m1.jpg','img/characters/realms_of_the_three_rings/m2.jpg'],
+      'f': ['img/characters/realms_of_the_three_rings/f0.jpg','img/characters/realms_of_the_three_rings/f1.jpg']
+    },
+    heroic_cultures_select: 'Elves of Lórien (Realms of the Three Rings)',
+    cultural_blessing: 'When in the forest, or using a Skill associated with a useful item, spend 1 Hope to Magical Success. Start with +1 useful item.',
+    standard_of_living: 'Frugal',
+    attributes: [
+      {strength: 5, heart: 2, wits: 7},
+      {strength: 4, heart: 3, wits: 7},
+      {strength: 5, heart: 3, wits: 6},
+      {strength: 4, heart: 4, wits: 6},
+      {strength: 5, heart: 4, wits: 5},
+      {strength: 6, heart: 2, wits: 6}
+    ],
+    derived_stats: {
+      getEndurance: (strength) => { return strength + 18; },
+      getHope: (heart) => { return heart + 8; },
+      getParry: (wits) => { return wits + 14; },
+      getTargetNumberOfStrength: (strength) => { return 20 - strength; },
+      getTargetNumberOfHeart: (heart) => { return 20 - heart; },
+      getTargetNumberOfWits: (wits) => { return 20 - wits; }
+    },
+    skills: {
+      'Awe': 1,
+      'Athletics': 2,
+      'Awareness': 2,
+      'Hunting': 1,
+      'Song': 2,
+      'Craft': 2,
+      'Enhearten': 0,
+      'Travel': 0,
+      'Insight': 0,
+      'Healing': 1,
+      'Courtesy': 0,
+      'Battle': 1,
+      'Persuade': 0,
+      'Stealth': 3,
+      'Scan': 2,
+      'Explore': 1,
+      'Riddle': 0,
+      'Lore': 2
+    },
+    favoured_skills: ['Awareness','Song'],
+    combat_proficiencies_2_points: ['Bows','Spears'],
+    combat_proficiencies_1_point: ['Axes','Bows','Spears','Swords'],
+    distinctive_features_list: ['Cunning', 'Fair', 'Keen-Eyed', 'Merry', 'Proud', 'Secretive', 'Swift', 'Wary'],
+    range_ages: {min: 300, max: 700},
+    names: {
+      male_names: 'Amras,Argon,Beleganor,Belegon,Calanhir,Carmagor,Cuidir,Durandir,Edrahil,Ellahir,Fincalan,Fuindor,Galdagor,Galdor,Hallas,Hirimlad,Ithildir,Lascalan,Linaith,Mablin,Malanor,Nauros,Orgalad,Pelegorn,Sargon'.split(','),
+      female_names: 'Anwen,Arbereth,Baraniel,Calanril,Celenneth,Cimbereth,Elnîth,Eraniel,Finduilas,Gilraeth,Gloredhel,Ioreth,Ivorwen,Lingil,Lôrwend,Lothíriel,Luindîs,Meneloth,Moriel,Morwen,Narieth,Narniel,Orothêl,Tavriel,Tarandîs'.split(','),
+      family_names: []
+    },
+    ponies_and_horses: clone(STANDARDS_OF_LIVING['Frugal'].ponies_and_horses),
+    previous_experience: 10,
+    extra_notes: '',
+    weapons_restriction: [],
+    shield_restriction: [],
+    armour_restriction: [],
+    helmet_restriction: false
+  },
+
 };
 
 const CALLINGS = {
@@ -2038,6 +2196,12 @@ function randomHelm(character,callback) {
 
 function randomUsefulItems(character,callback) {
   let count_useful_items = STANDARDS_OF_LIVING[character.standard_of_living].useful_items;
+
+  if (character.heroic_culture == 'Elves of Lórien') {
+    count_useful_items = count_useful_items + 1;
+    addChoiceInLog('Heroic Culture Bonus','+1 Useful Item');
+  }
+
   if (count_useful_items == 0) {
     callback();
   } else {
@@ -2595,9 +2759,10 @@ function changeSheetInternationalization(callback) {
 }
 
 document.getElementById('select-i18n').addEventListener('input',(event)=>{
+  console.clear();
   let index = event.target.selectedIndex;
   localStorage.setItem("select-i18n", index);
-  changeInternationalization(getI18NValue(index));
+  changeInternationalization(getI18NValue(index),()=>{});
 });
 
 function openLoading() {
@@ -2608,123 +2773,135 @@ function closeLoading() {
   document.getElementById('loading').style.display = 'none';
 }
 
-function changeInternationalization(i18n) {
+function renderNumberCharactersCreated(number_characters_created) {
+  let formated_number_characters_created = formatInternationalizationNumber(number_characters_created);
+  document.getElementById('form-span2').innerHTML = getInternationalization('#T013').replace('@number_characters_created', formated_number_characters_created);
+}
+
+function changeInternationalization(i18n,callback) {
   openLoading();
   CURRENT_I18N = i18n;
   createSelect(I18N_VALUES,'label','select-i18n',I18N_VALUES[i18n].index,()=>{
     createSelectToForm('All Heroic Cultures',HEROIC_CULTURES,'heroic_cultures_select','form-select-heroic-culture',()=>{
       createSelectToForm('All Callings',CALLINGS,'calling_select','form-select-calling',()=>{
-        /* Final steps */
+        getNumberCharacters((number_characters_created)=>{
+          /* Final steps */
 
-        document.getElementById('about-h1-title').innerHTML = getInternationalization('#T009');
-        document.getElementById('logs-h1-title').innerHTML = getInternationalization('#T018');
+          document.getElementById('about-h1-title').innerHTML = getInternationalization('#T009');
+          document.getElementById('logs-h1-title').innerHTML = getInternationalization('#T018');
 
-        document.querySelector('main').style.backgroundImage = 'url(img/ficha_' + CURRENT_I18N + '_pdf.jpg)';
+          document.querySelector('main').style.backgroundImage = 'url(img/ficha_' + CURRENT_I18N + '_pdf.jpg)';
 
-        document.getElementById('form-h1-title').innerHTML = getInternationalization('#T011');
-        document.getElementById('form-span1').innerHTML = getInternationalization('#T012');
-        document.getElementById('form-span2').innerHTML = getInternationalization('#T013');
-        document.getElementById('form-label-select1').innerHTML = getInternationalization('#T014');
-        document.getElementById('form-label-select2').innerHTML = getInternationalization('#T015');
+          document.getElementById('form-h1-title').innerHTML = getInternationalization('#T011');
+          document.getElementById('form-span1').innerHTML = getInternationalization('#T012');
 
-        document.getElementById('about-span1').innerHTML = getInternationalization('#T016');
+          // Render #T013
+          renderNumberCharactersCreated(number_characters_created);
 
-        document.getElementById('logs-close-logs').innerHTML = getInternationalization('#T020');
-        document.getElementById('logs-close-logs').onclick = function(event) {
-          removeInvisible('div.form');
-          removeInvisible('main');
+          document.getElementById('form-label-select1').innerHTML = getInternationalization('#T014');
+          document.getElementById('form-label-select2').innerHTML = getInternationalization('#T015');
 
-          addInvisible('div.logs');
-        };
+          document.getElementById('about-span1').innerHTML = getInternationalization('#T016');
 
-        document.getElementById('about-close-about').innerHTML = getInternationalization('#T017');
-        document.getElementById('about-close-about').onclick = function(event) {
-          removeInvisible('div.form');
-          removeInvisible('main');
+          document.getElementById('logs-close-logs').innerHTML = getInternationalization('#T020');
+          document.getElementById('logs-close-logs').onclick = function(event) {
+            removeInvisible('div.form');
+            removeInvisible('main');
 
-          addInvisible('div.about');
-        };
+            addInvisible('div.logs');
+          };
 
-        document.getElementById('form-reroll-character').innerHTML = getInternationalization('#T005');
-        document.getElementById('form-reroll-character').onclick = function(event) {
-          completeRollCharacter();
-        };
+          document.getElementById('about-close-about').innerHTML = getInternationalization('#T017');
+          document.getElementById('about-close-about').onclick = function(event) {
+            removeInvisible('div.form');
+            removeInvisible('main');
 
-        document.getElementById('form-link-logs').innerHTML = getInternationalization('#T019');
-        document.getElementById('form-link-logs').onclick = function(event) {
-          addInvisible('div.form');
-          addInvisible('main');
-          addInvisible('div.about');
+            addInvisible('div.about');
+          };
 
-          removeInvisible('div.logs');
-        };
+          document.getElementById('form-reroll-character').innerHTML = getInternationalization('#T005');
+          document.getElementById('form-reroll-character').onclick = function(event) {
+            completeRollCharacter();
+          };
 
-        document.getElementById('form-link-about').onclick = function(event) {
-          addInvisible('div.form');
-          addInvisible('main');
-          addInvisible('div.logs');
+          document.getElementById('form-link-logs').innerHTML = getInternationalization('#T019');
+          document.getElementById('form-link-logs').onclick = function(event) {
+            addInvisible('div.form');
+            addInvisible('main');
+            addInvisible('div.about');
 
-          removeInvisible('div.about');
-        };
+            removeInvisible('div.logs');
+          };
 
-        document.getElementById('form-export-fillable-pdf').innerHTML = getInternationalization('#T007');
-        document.getElementById('form-export-fillable-pdf').onclick = function(event) {
-          printPdf();
-        };
+          document.getElementById('form-link-about').onclick = function(event) {
+            addInvisible('div.form');
+            addInvisible('main');
+            addInvisible('div.logs');
 
-        document.getElementById('nav_link_reroll_character').innerHTML = getInternationalization('#T004');
-        document.getElementById('nav_link_reroll_character').onclick = function(event) {
-          completeRollCharacter();
-          document.documentElement.classList.remove('menu-aberto');
-        };
+            removeInvisible('div.about');
+          };
 
-        document.getElementById('nav_link_export_fillable_pdf').innerHTML = getInternationalization('#T006');
-        document.getElementById('nav_link_export_fillable_pdf').onclick = function(event) {
-          printPdf();
-          document.documentElement.classList.remove('menu-aberto');
-        };
+          document.getElementById('form-export-fillable-pdf').innerHTML = getInternationalization('#T007');
+          document.getElementById('form-export-fillable-pdf').onclick = function(event) {
+            printPdf();
+          };
 
-        document.getElementById('nav_link_channel').innerHTML = getInternationalization('#T008');
-        document.getElementById('nav_link_channel').onclick = function(event) {
-          window.open('https://www.youtube.com/@flechamagica','_blank');
-          document.documentElement.classList.remove('menu-aberto');
-        };
+          document.getElementById('nav_link_reroll_character').innerHTML = getInternationalization('#T004');
+          document.getElementById('nav_link_reroll_character').onclick = function(event) {
+            completeRollCharacter();
+            document.documentElement.classList.remove('menu-aberto');
+          };
 
-        document.getElementById('nav_link_logs').innerHTML = getInternationalization('#T018');
-        document.getElementById('nav_link_logs').onclick = function(event) {
-          addInvisible('div.form');
-          addInvisible('main');
-          addInvisible('div.about');
+          document.getElementById('nav_link_export_fillable_pdf').innerHTML = getInternationalization('#T006');
+          document.getElementById('nav_link_export_fillable_pdf').onclick = function(event) {
+            printPdf();
+            document.documentElement.classList.remove('menu-aberto');
+          };
 
-          removeInvisible('div.logs');
+          document.getElementById('nav_link_channel').innerHTML = getInternationalization('#T008');
+          document.getElementById('nav_link_channel').onclick = function(event) {
+            window.open('https://www.youtube.com/@flechamagica','_blank');
+            document.documentElement.classList.remove('menu-aberto');
+          };
 
-          document.documentElement.classList.remove('menu-aberto');
-        };
+          document.getElementById('nav_link_logs').innerHTML = getInternationalization('#T018');
+          document.getElementById('nav_link_logs').onclick = function(event) {
+            addInvisible('div.form');
+            addInvisible('main');
+            addInvisible('div.about');
 
-        document.getElementById('nav_link_about').innerHTML = getInternationalization('#T009');
-        document.getElementById('nav_link_about').onclick = function(event) {
-          addInvisible('div.form');
-          addInvisible('main');
-          addInvisible('div.logs');
+            removeInvisible('div.logs');
 
-          removeInvisible('div.about');
+            document.documentElement.classList.remove('menu-aberto');
+          };
 
-          document.documentElement.classList.remove('menu-aberto');
-        };
+          document.getElementById('nav_link_about').innerHTML = getInternationalization('#T009');
+          document.getElementById('nav_link_about').onclick = function(event) {
+            addInvisible('div.form');
+            addInvisible('main');
+            addInvisible('div.logs');
 
-        if (CHARACTER_ROLLED.character != null) {
-          changeSheetInternationalization((newCharacterSheet)=>{
-            renderCharacterSheet(newCharacterSheet,()=>{
-              renderCreationChoicesLogs(()=>{
-                closeLoading();
-                console.log(getInternationalization('#T010'));
+            removeInvisible('div.about');
+
+            document.documentElement.classList.remove('menu-aberto');
+          };
+
+          if (CHARACTER_ROLLED.character != null) {
+            changeSheetInternationalization((newCharacterSheet)=>{
+              renderCharacterSheet(newCharacterSheet,()=>{
+                renderCreationChoicesLogs(()=>{
+                  closeLoading();
+                  console.log(getInternationalization('#T010'));
+                  callback();
+                });
               });
             });
-          });
-        } else {
-          closeLoading();
-        }
-        /* Final steps */
+          } else {
+            closeLoading();
+            callback();
+          }
+          /* Final steps */
+        });
       });
     });
   });
@@ -2746,7 +2923,7 @@ function toggleInvisible(element) {
   document.querySelector(element).classList.toggle('invisible');
 }
 
-function startInternationalization() {
+function startInternationalization(callback) {
   let index = 0;
   let indexStorage = localStorage.getItem("select-i18n");
   if (checkIfExists(indexStorage) && isNumber(indexStorage)) {
@@ -2754,18 +2931,22 @@ function startInternationalization() {
   } else {
     localStorage.setItem("select-i18n", index);
   }
-  changeInternationalization(getI18NValue(index));
+  changeInternationalization(getI18NValue(index),callback);
 }
 
-startInternationalization();
-
 function completeRollCharacter() {
+  console.clear();
   rollCharacter((character)=>{
     convertCharacterToSheet(character,(characterSheet)=>{
       CHARACTER_ROLLED.character = character;
       CHARACTER_ROLLED.characterSheet = characterSheet;
       renderCharacterSheet(characterSheet,()=>{
-        renderCreationChoicesLogs(()=>{});
+        renderCreationChoicesLogs(()=>{
+          addNumberCharacters((number_characters_created)=>{
+            // Render #T013
+            renderNumberCharactersCreated(number_characters_created);
+          });
+        });
       });
     });
   });
@@ -2777,4 +2958,6 @@ function printPdf() {
 }
 
 /* Roll first time when page open */
-completeRollCharacter();
+startInternationalization(()=>{
+  completeRollCharacter();
+});
